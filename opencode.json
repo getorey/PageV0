@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["@pagev0/ai-work-agent"],
+  "aiWorkAgent": {
+    "enabled": true,
+    "autoApproveLowRisk": false,
+    "requireApprovalFor": [
+      "external_email",
+      "file_share",
+      "schedule_create",
+      "publish"
+    ],
+    "auditLogEnabled": true,
+    "maxRetries": 3
+  }
+}

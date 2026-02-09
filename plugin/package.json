@@ -1,0 +1,50 @@
+{
+  "name": "@pagev0/ai-work-agent",
+  "version": "1.0.0",
+  "description": "OpenCode plugin for AI Work Automation Agent - 업무 자동화 에이전트",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "ai",
+    "automation",
+    "workflow",
+    "agent"
+  ],
+  "author": "PageV0",
+  "license": "MIT",
+  "peerDependencies": {
+    "@opencode-ai/plugin": "^0.x"
+  },
+  "peerDependenciesMeta": {
+    "@opencode-ai/plugin": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0",
+    "@types/uuid": "^9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getorey/PageV0.git"
+  },
+  "bugs": {
+    "url": "https://github.com/getorey/PageV0/issues"
+  },
+  "homepage": "https://github.com/getorey/PageV0#readme"
+}
