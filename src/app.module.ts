@@ -7,6 +7,8 @@ import { ApprovalModule } from './approval/approval.module';
 import { AuditModule } from './audit/audit.module';
 import { PolicyModule } from './policy/policy.module';
 import { ConfigModule } from './config/config.module';
+import { AppLogger } from './common/logger.service';
+import { DebugController } from './common/debug.controller';
 
 @Module({
   imports: [
@@ -19,5 +21,8 @@ import { ConfigModule } from './config/config.module';
     AuditModule,
     PolicyModule,
   ],
+  controllers: [DebugController],
+  providers: [AppLogger],
+  exports: [AppLogger],
 })
 export class AppModule {}

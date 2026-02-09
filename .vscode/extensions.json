@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "nestjs.vscode-nestjs",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}

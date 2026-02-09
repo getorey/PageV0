@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import {
   Task,
@@ -12,10 +12,20 @@ import { CreateTaskRequest } from './dto/create-task.request';
 
 @Injectable()
 export class IntakeService {
+  private readonly logger = new Logger(IntakeService.name);
+
   async processRequest(request: CreateTaskRequest): Promise<Task> {
+    this.logger.debug(`Processing request: ${request.title}`, 'IntakeService');
+    
     const taskType = this.classifyTaskType(request.input, request.type);
+    this.logger.log(`Task classified as: ${taskType}`, 'IntakeService');
+    
     const riskTags = this.analyzeRiskTags(request.input, taskType);
     const riskLevel = this.calculateRiskLevel(riskTags);
+    
+    if (riskTags.length > 0) {
+      this.logger.warn(`Risk tags detected: ${riskTags.map(t => t.type).join(', ')}`, 'IntakeService');
+    }
 
     const task: Task = {
       id: uuidv4(),

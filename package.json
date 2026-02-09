@@ -9,25 +9,59 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js",
+    "start:dev": "NODE_ENV=development LOG_LEVEL=debug ts-node src/main.ts",
+    "start:debug": "NODE_ENV=development LOG_LEVEL=debug node --inspect=0.0.0.0:9229 -r ts-node/register src/main.ts",
     "dev": "ts-node src/main.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
-  "keywords": ["ai", "automation", "agent", "workflow"],
+  "keywords": [
+    "ai",
+    "automation",
+    "agent",
+    "workflow"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@nestjs/common": "^11.1.13",
     "@nestjs/core": "^11.1.13",
     "@nestjs/platform-express": "^11.1.13",
-    "@types/node": "^25.2.2",
-    "@types/uuid": "^10.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.3",
     "dotenv": "^17.2.4",
     "openai": "^6.18.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
-    "typescript": "^5.9.3",
     "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^25.2.2",
+    "@types/uuid": "^10.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }
