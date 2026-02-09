@@ -1,0 +1,33 @@
+{
+  "name": "pagev0",
+  "version": "1.0.0",
+  "description": "AI 업무 자동화 에이전트 - AI Work Automation Agent",
+  "main": "dist/main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "ts-node src/main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["ai", "automation", "agent", "workflow"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/common": "^11.1.13",
+    "@nestjs/core": "^11.1.13",
+    "@nestjs/platform-express": "^11.1.13",
+    "@types/node": "^25.2.2",
+    "@types/uuid": "^10.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.3",
+    "dotenv": "^17.2.4",
+    "openai": "^6.18.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "typescript": "^5.9.3",
+    "uuid": "^13.0.0"
+  }
+}
