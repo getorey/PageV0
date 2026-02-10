@@ -27,3 +27,8 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Package lock files
+package-lock.json
+plugin/package-lock.json
+plugin/node_modules/.package-lock.json
