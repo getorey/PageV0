@@ -25,6 +25,8 @@ export class RiskAnalyzer {
   }
 
   analyzeContent(content: string): Risk[] {
+    if (!content || typeof content !== 'string') return [];
+
     const risks: Risk[] = [];
 
     for (const { pattern, type, level } of this.piiPatterns) {
