@@ -95,13 +95,20 @@ export interface FileSaveOutput {
 }
 
 export interface PluginHooks {
-  "chat.message"?: (input: ChatMessageInput, output: ChatMessageOutput) => Promise<void> | void;
+  event?: (payload: any) => Promise<void> | void;
+  "message.created"?: (input: ChatMessageInput, output: ChatMessageOutput) => Promise<void> | void;
+  "message.updated"?: (input: any, output: any) => Promise<void> | void;
+  "message.part.updated"?: (input: any, output: any) => Promise<void> | void;
+  "experimental.chat.messages.transform"?: (
+    input: Record<string, never>,
+    output: { messages: Array<{ info?: any; parts: any[]; role?: string }> }
+  ) => Promise<void> | void;
   "tool.execute.before"?: (input: ToolExecuteInput, output: ToolExecuteOutput) => Promise<void> | void;
   "tool.execute.after"?: (input: ToolExecuteAfterInput, output: ToolExecuteOutput) => Promise<void> | void;
-  "permission.ask"?: (input: PermissionAskInput, output: PermissionAskOutput) => Promise<void> | void;
-  "file.save"?: (input: FileSaveInput, output: FileSaveOutput) => Promise<void> | void;
-  "session.start"?: () => Promise<void> | void;
-  "session.end"?: () => Promise<void> | void;
+  "permission.asked"?: (input: PermissionAskInput, output: PermissionAskOutput) => Promise<void> | void;
+  "file.written"?: (input: FileSaveInput, output: FileSaveOutput) => Promise<void> | void;
+  "session.created"?: () => Promise<void> | void;
+  "session.deleted"?: () => Promise<void> | void;
   config?: (config: any) => Promise<void> | void;
 }
 
