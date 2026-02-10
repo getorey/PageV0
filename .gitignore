@@ -1,6 +1,6 @@
 # Build outputs
-/dist
-/plugin/dist
+dist
+plugin/dist
 
 # Node modules
 node_modules/

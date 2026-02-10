@@ -12,6 +12,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
+    "test": "npx ts-node --project tsconfig.test.json test-plugin.ts",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -37,7 +38,8 @@
   },
   "dependencies": {
     "uuid": "^9.0.0",
-    "@types/uuid": "^9.0.0"
+    "@types/uuid": "^9.0.0",
+    "@opencode-ai/plugin": "latest"
   },
   "repository": {
     "type": "git",
